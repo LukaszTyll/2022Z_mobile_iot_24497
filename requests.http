@@ -1,0 +1,35 @@
+GET http://localhost:7071/api/GetPersonLastNameFn
+
+POST http://localhost:7071/api/AddPersonFn 
+Content-Type: "application/json"
+
+{
+    "firstname":"artur",
+    "lastname":"kowalski"
+}
+
+POST http://localhost:7071/api/AddPersonFn 
+Content-Type: "application/json"
+
+{
+    "firstname":"karol",
+    "lastname":"nowak"
+}
+
+POST http://localhost:7071/api/AddPersonFn 
+Content-Type: "application/json"
+
+{
+    "firstname":"ania",
+    "lastname":"aniowska"
+}
+
+
+@token = JqAJa72mUr0aXGbp/BDtDSejUtaKBadpyQ7aqYea/m2CgkULaLmMQA==
+POST https://developerlifefn.azurewebsites.net/api/AddPersonFn?code={{token}}
+Content-Type: "application/json"
+
+{
+    "firstname":"karolina",
+    "lastname":"karolinska"
+}
