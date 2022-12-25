@@ -21,3 +21,10 @@ Content-Type: "application/json"
     "lastname":"kiedys-karolinska"
 }
     
+DELETE https://tyll-fn.azurewebsites.net/api/DeletePersonFn?code=d8V0ncQ6KsYnE1rZ_cuphgbOBETEnigNGCjekOTiZlDaAzFupQ5Q5A==
+Content-Type: "application/json"
+
+{
+    "personid":5,
+}
+    
