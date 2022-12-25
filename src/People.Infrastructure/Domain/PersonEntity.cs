@@ -16,6 +16,10 @@ namespace People.Infrastructure.Domain
             return entity;
         }
 
+        public void UpdateFirstName(string firstname)
+        {
+            FirstName = firstname;
+        }
         public void UpdateLastName(string lastname)
         {
             LastName = lastname;

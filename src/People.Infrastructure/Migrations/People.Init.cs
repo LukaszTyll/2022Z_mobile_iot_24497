@@ -21,10 +21,10 @@ namespace People.Infrastructure.Migrations
                     table.PrimaryKey("PK_People", x => x.PersonId);
                 });
 
-        //     migrationBuilder.CreateIndex(
-        //         name: "IX_People_FirstName",
-        //         table: "People",
-        //         column: "FirstName");
+            migrationBuilder.CreateIndex(
+                name: "IX_People_FirstName",
+                table: "People",
+                column: "FirstName");
          }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -9,35 +8,36 @@ using People.Infrastructure.Domain;
 
 namespace People.Infrastructure.Handlers
 {
-    public class AddPersonCommandHandler
+    public class UpdatePersonCommandHandler
     {
-
         private readonly AzureDb db;
 
-        public AddPersonCommandHandler(AzureDb db)
+        public UpdatePersonCommandHandler(AzureDb db)
         {
             this.db = db;
         }
 
-        public async Task<int> HandleAsync(AddPersonCommand command)
+        public async Task<int> HandleAsync(UpdatePersonCommand command)
         {
             var entity = await db.Set<PersonEntity>().AsQueryable()
-                .FirstOrDefaultAsync(w => w.FirstName == command.FirstName);
+                .FirstOrDefaultAsync(w => w.PersonId == command.PersonId);
 
-            if (entity == null)
+            if (entity != null)
             {
-                entity = PersonEntity.Create(
+                    entity.UpdateFirstName(command.FirstName);
+                    entity.UpdateLastName(command.LastName);
+                    db.Set<PersonEntity>().Update(entity);
+            }
+            else{
+                    entity = PersonEntity.Create(
                     firstname: command.FirstName,
                     lastname: command.LastName
                 );
                 db.Set<PersonEntity>().Add(entity);
             }
-       
 
             await db.SaveChangesAsync();
             return entity.PersonId;
         }
-
-      
     }
 }

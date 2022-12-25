@@ -1,0 +1,8 @@
+{
+    "azureFunctions.projectSubpath": "src\\People.Functions",
+    "azureFunctions.deploySubpath": "src\\People.Functions/bin/Release/net6.0/publish",
+    "azureFunctions.projectLanguage": "C#",
+    "azureFunctions.projectRuntime": "~3",
+    "debug.internalConsoleOptions": "neverOpen",
+    "azureFunctions.preDeployTask": "publish (functions)"
+}

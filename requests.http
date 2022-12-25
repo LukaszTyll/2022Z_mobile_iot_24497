@@ -1,35 +1,23 @@
-GET http://localhost:7071/api/GetPersonByIdFn
-
-POST http://localhost:7071/api/AddPersonFn 
-Content-Type: "application/json"
-
-{
-    "firstname":"artur",
-    "lastname":"kowalski"
-}
-
-POST http://localhost:7071/api/AddPersonFn 
-Content-Type: "application/json"
-
-{
-    "firstname":"karol",
-    "lastname":"nowak"
-}
-
-POST http://localhost:7071/api/AddPersonFn 
-Content-Type: "application/json"
-
-{
-    "firstname":"ania",
-    "lastname":"aniowska"
-}
-
+GET https://tyll-fn.azurewebsites.net/api/getpersonbyidfn
 
 @token = JqAJa72mUr0aXGbp/BDtDSejUtaKBadpyQ7aqYea/m2CgkULaLmMQA==
-POST https://developerlifefn.azurewebsites.net/api/AddPersonFn?code={{token}}
+
+
+//POST https://developerlifefn.azurewebsites.net/api/AddPersonFn?code={{token}}
+POST https://tyll-fn.azurewebsites.net/api/AddPersonFn?code=ws-SI94caJkpmfD7pUcQoOmRFCLjkKv8X7Lll_5mSVEmAzFuGEgIiw==
 Content-Type: "application/json"
 
 {
     "firstname":"karolina",
     "lastname":"karolinska"
 }
+
+PUT https://tyll-fn.azurewebsites.net/api/UpdatePersonFn?code=gKAniSxg0y5PQN7qJIrxDsY2ftAHt7iEeLGLo3Vtlv0uAzFuK5l4WQ==
+Content-Type: "application/json"
+
+{
+    "personid":2,
+    "firstname":"karolina",
+    "lastname":"kiedys-karolinska"
+}
+    
