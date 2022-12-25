@@ -1,4 +1,4 @@
-GET https://tyll-fn.azurewebsites.net/api/getpersonbyidfn
+GET https://tyll-fn.azurewebsites.net/api/users/1
 
 @token = JqAJa72mUr0aXGbp/BDtDSejUtaKBadpyQ7aqYea/m2CgkULaLmMQA==
 

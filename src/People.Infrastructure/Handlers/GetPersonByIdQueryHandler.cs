@@ -18,19 +18,20 @@ namespace People.Infrastructure.Handlers
             this.db = db;
         }
 
-        public async Task<IEnumerable<Person>> HandleAsync(GetPersonByIdQuery query)
+         public async Task<IEnumerable<Person>> HandleAsync(GetPersonByIdQuery query)
         {
-            var entities = await db.Set<PersonEntity>()
-                .AsNoTracking()
-                .Select(s => new Person
+            // var entity = await db.Set<PersonEntity>().AsNoTracking()
+            //     .Select(w => w.PersonId == query.PersonId).ToQueryString();
+
+                    var entity =  await db.Set<PersonEntity>().AsQueryable()
+                    .Select(s => new Person
                 {
+                    PersonId = s.PersonId,
                     FirstName = s.FirstName,
                     LastName = s.LastName
                 })
-                .OrderByDescending(by => by.LastName)
-                .ToListAsync();
-
-            return entities;
+                    .Where(s => s.PersonId == query.PersonId).ToListAsync();
+            return entity;
         }
     }
 }

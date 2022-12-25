@@ -23,14 +23,15 @@ namespace People.Functions
         }
 
         [FunctionName("GetPersonByIdFn")]
-        public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult>  Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "users/{id:int}")] HttpRequest req, int id,
             ILogger log)
         {
-            var query = new GetPersonByIdQuery();
-            var handler = new GetPersonByIdQueryHandler(db);
-            var result = await handler.HandleAsync(query);
-            return new OkObjectResult(result);
+             var query = new GetPersonByIdQuery(id);
+             var handler = new GetPersonByIdQueryHandler(db);
+             var result = await handler.HandleAsync(query);
+             return new OkObjectResult(result);
         }
     }
 }
