@@ -14,18 +14,18 @@ namespace People.Infrastructure.Migrations
                     PersonId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(maxLength: 250, nullable: false),
-                    LastName = table.Column<int>(nullable: false),
+                    LastName = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_People", x => x.PersonId);
                 });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_People_FirstName",
-                table: "People",
-                column: "FirstName");
-        }
+        //     migrationBuilder.CreateIndex(
+        //         name: "IX_People_FirstName",
+        //         table: "People",
+        //         column: "FirstName");
+         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {

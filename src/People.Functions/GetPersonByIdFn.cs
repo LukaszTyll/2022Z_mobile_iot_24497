@@ -13,22 +13,22 @@ using People.Dto.Queries;
 
 namespace People.Functions
 {
-    public class GetPersonLastNameFn
+    public class GetPersonByIdFn
     {
         private readonly AzureDb db;
 
-        public GetPersonLastNameFn(AzureDb db)
+        public GetPersonByIdFn(AzureDb db)
         {
             this.db = db;
         }
 
-        [FunctionName("GetPersonLastNameFn")]
+        [FunctionName("GetPersonByIdFn")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
             ILogger log)
         {
-            var query = new GetPersonLastNameQuery();
-            var handler = new GetPersonLastNameQueryHandler(db);
+            var query = new GetPersonByIdQuery();
+            var handler = new GetPersonByIdQueryHandler(db);
             var result = await handler.HandleAsync(query);
             return new OkObjectResult(result);
         }

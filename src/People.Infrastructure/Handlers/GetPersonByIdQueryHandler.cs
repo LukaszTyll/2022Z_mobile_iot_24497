@@ -9,16 +9,16 @@ using People.Infrastructure.Domain;
 
 namespace People.Infrastructure.Handlers
 {
-    public class GetPersonLastNameQueryHandler
+    public class GetPersonByIdQueryHandler
     {
         private readonly AzureDb db;
 
-        public GetPersonLastNameQueryHandler(AzureDb db)
+        public GetPersonByIdQueryHandler(AzureDb db)
         {
             this.db = db;
         }
 
-        public async Task<IEnumerable<Person>> HandleAsync(GetPersonLastNameQuery query)
+        public async Task<IEnumerable<Person>> HandleAsync(GetPersonByIdQuery query)
         {
             var entities = await db.Set<PersonEntity>()
                 .AsNoTracking()

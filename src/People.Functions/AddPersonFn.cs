@@ -27,8 +27,8 @@ namespace People.Functions
             ILogger log)
         {
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            var command = JsonConvert.DeserializeObject<AddPersonLastNameCommand>(requestBody);
-            var handler = new AddPersonLastNameCommandHandler(db);
+            var command = JsonConvert.DeserializeObject<AddPersonCommand>(requestBody);
+            var handler = new AddPersonCommandHandler(db);
             var id = await handler.HandleAsync(command);
             return new OkResult();
         }

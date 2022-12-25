@@ -1,4 +1,4 @@
-GET http://localhost:7071/api/GetPersonLastNameFn
+GET http://localhost:7071/api/GetPersonByIdFn
 
 POST http://localhost:7071/api/AddPersonFn 
 Content-Type: "application/json"

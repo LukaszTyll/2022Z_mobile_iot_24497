@@ -1,12 +1,12 @@
 namespace People.Dto.Commands
 {
-    public class AddPersonLastNameCommand
+    public class AddPersonCommand
     {
-        protected AddPersonLastNameCommand()
+        protected AddPersonCommand()
         {
 
         }
-        public AddPersonLastNameCommand(string firstname, string lastname)
+        public AddPersonCommand(string firstname, string lastname)
         {
             FirstName = firstname;
             LastName = lastname;

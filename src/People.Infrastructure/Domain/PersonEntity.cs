@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace People.Infrastructure.Domain
 {
@@ -19,7 +20,8 @@ namespace People.Infrastructure.Domain
         {
             LastName = lastname;
         }
-
+        
+        [Key]
         public int PersonId { get; protected set; }
         public string FirstName { get; protected set; }
         public string LastName { get; protected set; }

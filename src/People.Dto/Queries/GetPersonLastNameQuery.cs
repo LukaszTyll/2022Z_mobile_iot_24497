@@ -1,6 +1,6 @@
 namespace People.Dto.Queries
 {
-    public class GetPersonLastNameQuery
+    public class GetPersonByIdQuery
     {
         
     }

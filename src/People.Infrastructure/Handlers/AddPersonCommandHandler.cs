@@ -8,16 +8,16 @@ using People.Infrastructure.Domain;
 
 namespace People.Infrastructure.Handlers
 {
-    public class AddPersonLastNameCommandHandler
+    public class AddPersonCommandHandler
     {
         private readonly AzureDb db;
 
-        public AddPersonLastNameCommandHandler(AzureDb db)
+        public AddPersonCommandHandler(AzureDb db)
         {
             this.db = db;
         }
 
-        public async Task<int> HandleAsync(AddPersonLastNameCommand command)
+        public async Task<int> HandleAsync(AddPersonCommand command)
         {
             var entity = await db.Set<PersonEntity>().AsQueryable()
                 .FirstOrDefaultAsync(w => w.FirstName == command.FirstName);
